@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Liturgy Bot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a2e;
+      --warm: #f8f6f1;
+      --accent: #8b2c3a;
+      --muted: #6b6b7b;
+      --rule: #d4d0c8;
+      --serif: 'Source Serif 4', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--warm);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 2.5rem;
+    }
+
+    .cross {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+      color: var(--accent);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    p strong {
+      color: var(--ink);
+    }
+
+    .effective {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      margin-top: 0.8rem;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="cross">✝</span>
+      <h1>Privacy Policy</h1>
+      <p class="subtitle">Liturgy Bot</p>
+      <nav>
+        <a href="index.html">← Back to Home</a>
+      </nav>
+    </header>
+
+    <p class="effective">Effective date: 23 March 2026</p>
+
+    <h2>What Liturgy Bot is</h2>
+    <p>Liturgy Bot is a private automated service that generates a weekly Children's Liturgy of the Word document for a single Catholic parish in the Diocese of Westminster. It is developed and operated by Romain Thierry. It is not a public-facing application and has no external users.</p>
+
+    <h2>What Google user data is accessed</h2>
+    <p>Liturgy Bot accesses a single Google account via the Gmail API with two scopes:</p>
+    <p><strong>gmail.send</strong> — used to send the weekly liturgy document as an email attachment to two parish catechists, and to send error or conflict notification emails to the developer.</p>
+    <p><strong>gmail.readonly</strong> — used solely to verify the authenticated account identity (via getProfile) during the email sending process. No emails are read, searched, or accessed.</p>
+
+    <h2>How the data is used</h2>
+    <p>The Gmail API is used exclusively to send outbound emails. Liturgy Bot does not read, modify, delete, or store any email content. It does not access contacts, calendars, Drive, or any other Google service. The only data transmitted is the outbound email itself (a Word document attachment and a short message body).</p>
+
+    <h2>What data is stored</h2>
+    <p>Liturgy Bot stores an OAuth 2.0 refresh token in Google Cloud Secret Manager to authenticate with the Gmail API. No email content, user data, or personal information is stored, logged, or retained beyond the token required for authentication.</p>
+
+    <h2>Data sharing</h2>
+    <p>Liturgy Bot does not share any Google user data with third parties. The generated liturgy document is sent only to two designated recipients whose email addresses are stored in Secret Manager.</p>
+
+    <h2>Data retention and deletion</h2>
+    <p>No Google user data is retained. The OAuth token can be revoked at any time by the account holder through Google Account settings. Revoking the token immediately and permanently disables the bot's access to the Gmail account.</p>
+
+    <h2>Security</h2>
+    <p>All credentials are stored in Google Cloud Secret Manager with access restricted to a dedicated service account. The application runs in an isolated Cloud Run container. No credentials are stored in code or configuration files.</p>
+
+    <h2>Contact</h2>
+    <p>For questions or concerns about this privacy policy or Liturgy Bot's use of data, contact <strong>romain.thierry@gmail.com</strong>.</p>
+
+    <footer>
+      <p>Liturgy Bot · <a href="index.html">Home</a></p>
+    </footer>
+  </div>
+</body>
+</html>

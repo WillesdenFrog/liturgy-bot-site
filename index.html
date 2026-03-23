@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liturgy Bot — Automated Children's Liturgy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a2e;
+      --warm: #f8f6f1;
+      --accent: #8b2c3a;
+      --muted: #6b6b7b;
+      --rule: #d4d0c8;
+      --serif: 'Source Serif 4', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--warm);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 2.5rem;
+    }
+
+    .cross {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+      color: var(--accent);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0.4rem 1.2rem;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .detail-grid dt {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .detail-grid dd {
+      color: #444;
+    }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      margin-top: 0.8rem;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    nav a + a::before {
+      content: "·";
+      margin: 0 0.6rem;
+      color: var(--rule);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="cross">✝</span>
+      <h1>Liturgy Bot</h1>
+      <p class="subtitle">Automated Children's Liturgy Document Generation</p>
+      <nav>
+        <a href="privacy.html">Privacy Policy</a>
+      </nav>
+    </header>
+
+    <h2>What is Liturgy Bot?</h2>
+    <p>Liturgy Bot is a small automated service that prepares a weekly Children's Liturgy of the Word document for a Catholic parish in the Diocese of Westminster. Every Saturday morning, it fetches the week's readings from diocesan sources, generates a formatted Word document with age-appropriate content for children aged 5–8, and emails it to the parish's volunteer catechists.</p>
+
+    <h2>How it works</h2>
+    <p>The bot runs as a scheduled job in Google Cloud. It downloads two source PDFs published weekly by the Diocese of Westminster and the Adorers of the Blood of Christ, extracts the readings, prayers, and liturgical texts, and assembles them into a structured document following the parish's established format. An AI model generates a short introduction and a conversation-guide reflection to help catechists engage children with the Gospel.</p>
+    <p>The finished document is emailed to two catechists via the Gmail API. This is the only interaction the bot has with Google services — it sends emails from a single designated Gmail account. It does not read, modify, or delete any emails, and does not access any other user data.</p>
+
+    <h2>Who it's for</h2>
+    <p>This is a private, single-parish tool used by two volunteer catechists. It is not a public-facing application and does not serve external users.</p>
+
+    <h2>Technical details</h2>
+    <dl class="detail-grid">
+      <dt>Platform</dt>
+      <dd>Google Cloud (Cloud Run Job)</dd>
+      <dt>Schedule</dt>
+      <dd>Weekly, Saturday 06:00 UTC</dd>
+      <dt>Gmail scopes</dt>
+      <dd>gmail.send, gmail.readonly</dd>
+      <dt>Users</dt>
+      <dd>1 Gmail account (sending only)</dd>
+      <dt>Developer</dt>
+      <dd>Romain Thierry</dd>
+    </dl>
+
+    <h2>Contact</h2>
+    <p>For questions about this application, contact <strong>romain.thierry@gmail.com</strong>.</p>
+
+    <footer>
+      <p>Liturgy Bot · A parish automation tool</p>
+      <p><a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+  </div>
+</body>
+</html>
