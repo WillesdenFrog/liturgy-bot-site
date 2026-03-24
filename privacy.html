@@ -133,9 +133,8 @@
     <p>Liturgy Bot is a private automated service that generates a weekly Children's Liturgy of the Word document for a single Catholic parish in the Diocese of Westminster. It is developed and operated by Romain Thierry. It is not a public-facing application and has no external users.</p>
 
     <h2>What Google user data is accessed</h2>
-    <p>Liturgy Bot accesses a single Google account via the Gmail API with two scopes:</p>
+    <p>Liturgy Bot accesses a single Google account via the Gmail API with one scope:</p>
     <p><strong>gmail.send</strong> — used to send the weekly liturgy document as an email attachment to two parish catechists, and to send error or conflict notification emails to the developer.</p>
-    <p><strong>gmail.readonly</strong> — used solely to verify the authenticated account identity (via getProfile) during the email sending process. No emails are read, searched, or accessed.</p>
 
     <h2>How the data is used</h2>
     <p>The Gmail API is used exclusively to send outbound emails. Liturgy Bot does not read, modify, delete, or store any email content. It does not access contacts, calendars, Drive, or any other Google service. The only data transmitted is the outbound email itself (a Word document attachment and a short message body).</p>
