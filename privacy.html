@@ -121,24 +121,23 @@
     <h2>What Liturgy Bot is</h2>
     <p>Liturgy Bot is a private automated service that generates a weekly Children's Liturgy of the Word document for a single Catholic parish in the Diocese of Westminster. It is developed and operated by Romain Thierry. It is not a public-facing application and has no external users.</p>
 
-    <h2>What Google user data is accessed</h2>
-    <p>Liturgy Bot accesses a single Google account via the Gmail API with one scope:</p>
-    <p><strong>gmail.send</strong> — used to send the weekly liturgy document as an email attachment to two parish catechists, and to send error or conflict notification emails to the developer.</p>
+    <h2>What data is collected</h2>
+    <p>Liturgy Bot stores the email addresses of two parish catechists in order to deliver the weekly document. No other personal data is collected.</p>
 
     <h2>How the data is used</h2>
-    <p>The Gmail API is used exclusively to send outbound emails. Liturgy Bot does not read, modify, delete, or store any email content. It does not access contacts, calendars, Drive, or any other Google service. The only data transmitted is the outbound email itself (a Word document attachment and a short message body).</p>
+    <p>Email addresses are used exclusively to send the weekly liturgy document and occasional notification emails via SMTP (Brevo relay). The generated document is also archived to a shared Dropbox folder. Liturgy Bot does not access contacts, calendars, or any other personal data.</p>
 
     <h2>What data is stored</h2>
-    <p>Liturgy Bot stores an OAuth 2.0 refresh token in Google Cloud Secret Manager to authenticate with the Gmail API. No email content, user data, or personal information is stored, logged, or retained beyond the token required for authentication.</p>
+    <p>Recipient email addresses and API credentials are stored securely on the hosting platform. No email content, user data, or personal information is stored, logged, or retained beyond what is required for delivery and archiving.</p>
 
     <h2>Data sharing</h2>
-    <p>Liturgy Bot does not share any Google user data with third parties. The generated liturgy document is sent only to two designated recipients whose email addresses are stored in Secret Manager.</p>
+    <p>Liturgy Bot does not share any personal data with third parties. The generated liturgy document is sent only to two designated recipients and saved to a private Dropbox folder.</p>
 
     <h2>Data retention and deletion</h2>
-    <p>No Google user data is retained. The OAuth token can be revoked at any time by the account holder through Google Account settings. Revoking the token immediately and permanently disables the bot's access to the Gmail account.</p>
+    <p>No personal data beyond recipient email addresses is retained. Recipients can request removal at any time by contacting the developer.</p>
 
     <h2>Security</h2>
-    <p>All credentials are stored in Google Cloud Secret Manager with access restricted to a dedicated service account. The application runs in an isolated Cloud Run container. No credentials are stored in code or configuration files.</p>
+    <p>All credentials are stored securely on the hosting platform with access restricted to the application. The application runs in an isolated container. No credentials are stored in code or configuration files.</p>
 
     <h2>Contact</h2>
     <p>For questions or concerns about this privacy policy or Liturgy Bot's use of data, contact <strong>liturgybot.admin@gmail.com</strong>.</p>

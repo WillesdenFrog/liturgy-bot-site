@@ -130,8 +130,8 @@
     <p>Liturgy Bot is a small automated service that prepares a weekly Children's Liturgy of the Word document for a Catholic parish in the Diocese of Westminster. Every Saturday morning, it fetches the week's readings from diocesan sources, generates a formatted Word document with age-appropriate content for children aged 5–8, and emails it to the parish's volunteer catechists.</p>
 
     <h2>How it works</h2>
-    <p>The bot runs as a scheduled job in Google Cloud. It downloads two source PDFs published weekly by the Diocese of Westminster and the Adorers of the Blood of Christ, extracts the readings, prayers, and liturgical texts, and assembles them into a structured document following the parish's established format. An AI model generates a short introduction and a conversation-guide reflection to help catechists engage children with the Gospel.</p>
-    <p>The finished document is emailed to two catechists via the Gmail API. This is the only interaction the bot has with Google services — it sends emails from a single designated Gmail account. It does not read, modify, or delete any emails, and does not access any other user data.</p>
+    <p>The bot runs as a scheduled job on Railway. It downloads two source PDFs published weekly by the Diocese of Westminster and the Adorers of the Blood of Christ, extracts the readings, prayers, and liturgical texts, and assembles them into a structured document following the parish's established format. An AI model generates a short introduction and a conversation-guide reflection to help catechists engage children with the Gospel.</p>
+    <p>The finished document is emailed to two catechists via SMTP (Brevo relay) and archived to a shared Dropbox folder.</p>
 
     <h2>Who it's for</h2>
     <p>This is a private, single-parish tool used by two volunteer catechists. It is not a public-facing application and does not serve external users.</p>
@@ -139,13 +139,13 @@
     <h2>Technical details</h2>
     <dl class="detail-grid">
       <dt>Platform</dt>
-      <dd>Google Cloud (Cloud Run Job)</dd>
+      <dd>Railway</dd>
       <dt>Schedule</dt>
       <dd>Weekly, Saturday 06:00 UTC</dd>
-      <dt>Gmail scopes</dt>
-      <dd>gmail.send, gmail.readonly</dd>
-      <dt>Users</dt>
-      <dd>1 Gmail account (sending only)</dd>
+      <dt>Email</dt>
+      <dd>SMTP via Brevo relay</dd>
+      <dt>Archive</dt>
+      <dd>Dropbox API</dd>
       <dt>Developer</dt>
       <dd>Romain Thierry</dd>
     </dl>

@@ -127,9 +127,8 @@
     <h2>What the service does</h2>
     <p>Each Saturday, the service automatically fetches publicly available liturgical readings from diocesan websites, generates a formatted Word document with age-appropriate content for children, and emails the document to the two catechists. The catechists may edit the document before use.</p>
 
-    <h2>Use of Google APIs</h2>
-    <p>Liturgy Bot accesses a single Gmail account via the Gmail API to send outbound emails. It uses the <strong>gmail.send</strong> scope to send the weekly document and notification emails, and the <strong>gmail.readonly</strong> scope solely to verify the authenticated account identity. It does not read, search, modify, or delete any emails or other Google account data.</p>
-    <p>Liturgy Bot's use of Google APIs complies with the <a href="https://developers.google.com/terms/api-services-user-data-policy" style="color: var(--accent);">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+    <h2>Third-party services</h2>
+    <p>Liturgy Bot uses Brevo (SMTP relay) to send emails and the Dropbox API to archive documents. It does not access any other external services beyond the diocesan websites from which it fetches publicly available liturgical readings.</p>
 
     <h2>No warranties</h2>
     <p>This service is provided as-is, without warranty of any kind. The developer makes no guarantees regarding availability, accuracy, or fitness for any particular purpose. The generated documents are intended as a starting point and should be reviewed by the catechists before use.</p>
